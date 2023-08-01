@@ -19,13 +19,11 @@ wine_df = pd.DataFrame(wine.data, columns=wine.feature_names)
 wine_df["WineType"] = [wine.target_names[typ] for typ in wine.target]
 
 X_train, X_test, Y_train, Y_test = train_test_split(wine.data, wine.target, train_size=0.8, random_state=123)
-# X_train.shape, X_test.shape, Y_train.shape, Y_test.shape
 
 ## Load model
 rf_classif = load("rf_classif.model")
-# rf_classif.fit(X_train, Y_train)
+
 Y_test_preds = rf_classif.predict(X_test)
-# Y_test_preds[:5]
 
 ## Dashboard
 st.title("Wine Type :red[Prediction] :bar_chart: :chart_with_upwards_trend: :tea: :coffee:")
